@@ -1,0 +1,41 @@
+{% extends 'shop/basic.html' %}
+ {% load static %}
+ {% block body %}
+ <br/>
+<div class="container" style="max-width:500px;margin:auto;border:1px solid white;height:600px;">
+<div class="container inside"style="max-width:300px;margin:auto;border:1px solid white;height:600px;background-color:#17a2b8;">
+<a class="navbar-brand text-light" href="{% url 'index' %}" style="margin-left: 40%;"><b style="margin-left: 20px;margin-right:-4rem;">7</b><br>Shop</a>
+<h5 class="text-light" style="margin-top:18px;">Create Account</h5>
+<form>
+  <div class="row">
+    <div class="col">
+    <label class="text-light">Your Name</label>
+      <input type="text" class="form-control">
+    <label class="text-light">Phone Number</label>
+          <input type="tel" class="form-control" placeholder="Mobile Number">
+    <label class="text-light">Email(optional)</label>
+          <input type="Email" class="form-control" >
+     <label class="text-light">Password</label>
+          <input type="Password" class="form-control" placeholder="atleast 6 character">
+    <button type="button" class="btn btn-warning" style="margin-left:20%;
+    margin-top: 14px;width: 64%;">Continue</button>
+    <p style="color:white;margin-top: 30px;">Already have an account? <a style="color:white;" href={% url 'login' %} style="color:white">Sign In</a></p>
+
+
+
+
+
+    
+    </div>
+      </div>
+  </div>
+   
+</form>
+
+
+
+
+</div>
+</div>
+
+ {% endblock %} 

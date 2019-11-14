@@ -1,0 +1,184 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      
+<!--      semantic ui-->
+      
+{% comment %} 
+  <link rel='stylesheet prefetch' href="{% static 'http://cdnjs.cloudflare.com/ajax/libs/semantic-ui/0.16.1/css/semantic.min.css' %}">
+  
+  
+  <link rel='stylesheet prefetch' href="{% static 'https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/components/icon.min.css' %}"> {% endcomment %}
+  
+
+      
+      
+      <style>
+      {% block css %}  
+          .text-muted{
+              color:white!important;
+          }
+          
+      
+      {% endblock %}
+      
+      </style>
+    <title>
+    {% block title %}   {% endblock %} 
+    </title>
+  </head>
+  <body>
+
+<!--  {% comment %} Header {% endcomment %}-->
+    <nav class="navbar navbar-expand-lg navbar-info bg-info">
+  <a class="navbar-brand text-light" href="{% url 'index'%}"><b style="margin-left: 20px;margin-right:-4rem;">7</b><br>Shop</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent " aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse " id="navbarSupportedContent" style="margin-left:4%;">
+    <ul class="navbar-nav mr-auto" >
+      <li class="nav-item active ">
+        <a class="nav-link text-light" href={% url 'index' %} >Home <span class="sr-only">(current)</span></a>
+      </li>
+        <li class="nav-item active">
+        <a class="nav-link text-light" href="#">Men <span class="sr-only">(current)</span></a>
+      </li>
+        <li class="nav-item active">
+        <a class="nav-link text-light" href="#">Women<span class="sr-only">(current)</span></a>
+      </li>
+      
+      <li class="nav-item dropdown active">
+        <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Products
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0 " style="width: 60%;margin-left: 10px;">
+      <input class="form-control mr-sm-2 " type="search" placeholder="Search" aria-label="Search" style="width: 60%;margin-left: -21%;   ">
+      <button class="btn btn-outline-success my-2 my-sm-0 " type="submit" style="color:white;background-color:green;">Search</button>
+  
+        
+        
+        <li class="nav-item dropdown ">
+        <a class="nav-link dropdown-toggle"style="color:white!important;margin-top: -29px!important;"  href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-top:-20%;    margin-left: 24px;">
+                       
+
+            <i class="user icon" style="color: black;font-size: 25px;margin-left:0%;margin-top:0%;"></i>
+          <span style="color: white;">Accounts</span>
+       <i class="fa fa-user" style="font-size:24px;color: white;font-size: 25px;margin-left:0%;margin-top:0%;"></i>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown"  style="width:21rem;height:9rem;">
+          {% comment %} <a class="dropdown-item" href={% url 'login' %}>Login</a> {% endcomment %}
+          <a class="dropdown-item"> <div class="container-fluid " style="height:9rem;margin-left: 20px; ">
+            </a><div class="content" style="float: left;margin-left: 2%;margin-top: 0%;}">
+        <span> See personalized recommendations</span><br/></a>
+        <a href= {% url 'login' %}><button type="button" class="btn btn-info" style="width: 100%; "><b>Sign In</b></button></a><br/>
+          <span class="new Customer">New Customer ? <a href={% url 'register' %}>Start Here</a></span>
+        </div>
+       {% comment %} <a class="dropdown-item" href={% url '#' %}>Contact us</a>
+      <a class="dropdown-item" href={% url '#' %}>Wishlist</a>
+      <a class="dropdown-item" href={% url '#' %}>Orders</a> {% endcomment %}
+      </div>       
+      </li>
+
+<a class="nav-link text-dark" href="#" style="font-size: 25px;margin-bottom: 7px;"> <i class="shopping cart icon"></i> 
+<span class="sr-only">(current)</span></a>
+<a href= "{% url 'orders' %}"><span style="color: white;">Your Orders</span></a>
+
+</div>
+<ul><li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true">
+          <span class="fa fa-shopping-cart ch" style="font-size:30px;margin-top: 8px;"><span id="cart"> 0</span></span>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="margin-left: -44px;">
+          <a class="dropdown-item" href="#">Wishlist</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Checkout</a>
+        </div>
+      </li>
+</ul> 
+
+{% comment %} <a href="#" style="color:white;"><span class="fa fa-shopping-cart ch" style="font-size:35px;margin-left: 35px;"><span id="cart"> 0</span></span></a> {% endcomment %}
+    </form>
+        </div>
+</nav>
+{% comment %} header end {% endcomment %}
+{% block body %}  {% endblock %}
+
+
+
+
+
+<!--      footer-->
+      <div class="container-fluid " style="height:1rem;"></div>
+      
+      <a href=""> <div class="container-fluid  bg-info" style="height:2rem;"> 
+          <a href="#" style="margin-left: 36rem;color: white">Back To Top </a>
+      
+      </div></a>
+      <footer class="pt-4 my-md-5 pt-md-5 border-top bg-info" style="margin-bottom: 0!important;margin-top: 0!important;color:white!important;">
+    <div class="row bg-info">
+      <div class="col-12 col-md">
+        <img class="mb-2" src="{% static 'shop/4.jpg' %}"="/docs/4.3/assets/brand/bootstrap-solid.svg" alt="" width="24" height="24">
+        <small class="d-block mb-3 text-muted">© 2017-2019</small>
+      </div>
+      <div class="col-6 col-md">
+        <h5>Features</h5>
+        <ul class="list-unstyled text-small" >
+          <li><a class="text-muted " href="#" >Cool stuff</a></li>
+          <li><a class="text-muted " href="#" >Random feature</a></li>
+          <li><a class="text-muted " href="#">Team feature</a></li>
+          <li><a class="text-muted "href="#" >Stuff for developers</a></li>
+          <li><a class="text-muted " href="#">Another one</a></li>
+          <li><a class="text-muted " href="#">Last time</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-md">
+        <h5>Resources</h5>
+        <ul class="list-unstyled text-small-light">
+          <li><a class="text-muted" href="#">Resource</a></li>
+          <li><a class="text-muted" href="#">Resource name</a></li>
+          <li><a class="text-muted" href="#">Another resource</a></li>
+          <li><a class="text-muted" href="#">Final resource</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-md">
+        <h5>About</h5>
+        <ul class="list-unstyled text-small">
+          <li><a class="text-muted" href="#">Team</a></li>
+          <li><a class="text-muted" href="#">Locations</a></li>
+          <li><a class="text-muted" href="#">Privacy</a></li>
+          <li><a class="text-muted" href="#">Terms</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+      
+      
+      
+      
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    {% block js %}  {% endblock %}
+  </body>
+</html>
+
+
