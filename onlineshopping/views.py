@@ -10,6 +10,8 @@ def index(request):
     return render(request,'shop/index.html',params)
 
 def about(request):
+    # demo
+    # 41 video
     return render(request,'shop/about.html')
 
 def tracker(request):
@@ -30,8 +32,9 @@ def login(request):
 def register(request):
     return render(request,'shop/register.html')
 
-def productview(request, myid): 
-    product = product.objects.filter(id=id)
-    print(product)
-    return render(request,'shop/productview.html')
+def productview(request,myid): 
+    # fetch th product using id
+    products = product.objects.filter(id=myid)
+    print(products)
+    return render(request,'shop/productview.html',{'products':products[0]})
     
