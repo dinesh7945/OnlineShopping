@@ -10,7 +10,12 @@ def index(request):
     return render(request,'shop/index.html',params)
 
 def about(request):
+    # demo
+    # 41 video
     return render(request,'shop/about.html')
+
+def contact(request):
+    return render(request,'shop/contact.html')
 
 def tracker(request):
     return HttpResponse(" we are at tracker")
@@ -31,7 +36,9 @@ def register(request):
     return render(request,'shop/register.html')
 
 def productview(request, myid): 
-    product = product.objects.filter(id=id)
-    print(product)
-    return render(request,'shop/productview.html')
+    # fetch th product using id
+    # http://127.0.0.1:8000/onlineshopping/products/13
+    products = product.objects.filter(id=myid)
+    print(products)
+    return render(request,'shop/productview.html',{'products':products[0]})
     
