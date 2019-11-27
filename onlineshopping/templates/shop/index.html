@@ -68,9 +68,10 @@
     <div class="card-body">
     <a href= "/onlineshopping/products/{{i.id}}"><button id="qv{{i.id}}" class="ql" style="position: absolute;top: 29%;left: 23%;opacity: 0.1;">quick look</button></a>
   <a class='vphover' href="#"><img src="/media/{{i.product_image}}" class="card-img-top ci"  alt="..."></a> 
-<a href="#"<h5 class="card-title">{{i.product_name}}</h5></a>
+<a href="/onlineshopping/products/{{i.id}}"><h5 class="card-title">{{i.product_name}}</h5></a>
     <p class="card-text">{{i.product_desc|slice:"0:53"}}...</p>
-    <button id="pr{{i.product_name}}" class="btn btn-primary cart">Add to cart</button>
+    {% comment %} <button id="{{i.product_name}}" class="btn btn-primary cart">Add to cart</button> {% endcomment %}
+     <button id="{{i.id}}" class="btn btn-primary cart">Add to cart</button>
   </div>               
 </div>                    
 </div>
@@ -694,7 +695,9 @@
 
 {% comment %} after click code start here {% endcomment %}
 var qnt=0;
-//console.log('working');
+
+
+//find out cart items in localStorage.getItem
 console.log(localStorage.getItem('cart'))
 if(localStorage.getItem('cart') == null){
     var cart = {};
@@ -711,6 +714,7 @@ for(var key in cart)
 }        
 
 //jquery function
+// if add to cart button is clicked add / increment the item
 $('.cart').click(function(){
 console.log('clicked');
 var idstr = this.id.toString();
@@ -720,9 +724,13 @@ cart[idstr] = cart[idstr] + 1;
 }
 else{
   cart[idstr] = 1;
+  //comment
 }
 console.log(cart);
 localStorage.setItem('cart', JSON.stringify(cart))
+
+
+
 document.getElementById('cart').innerHTML = qnt;
 
 for(var key in cart)
@@ -732,8 +740,31 @@ for(var key in cart)
 }
 //console.log(qnt);
 document.getElementById('cart').innerHTML = qnt;
-}); 
- 
+});
+
+ // add popover to cart
+ {% comment %} $('#popcart').popover();
+document.getElementById("popcart").setAttribute('data-content', '<h5>Cart for your items in my shopping cart</h5>'); {% endcomment %}
+//cart product display
+function updatecart(){
+      console.log('we are in updatecart')
+      var updatecart = "";
+      updatecart = updatecart + "<h5>cart for items in shopping carts"
+      var i = 1;
+      for(var item in cart){
+        updatecart = updatecart + "<b>" + i + "</b>. ";
+        updatecart = updatecart + document.getElementById('name' + item).innerHTML.slice(0, 19) + "... Qty: " + cart[item] + '<br>';
+        i = i+1;
+    }
+    updatecart = updatecart + "</div>" 
+    console.log(updatecart);
+    document.getElementById('updatecart').setAttribute('data-content',updatecart);
+    $('#updatecart').popover('show');
+      }
+  
+
+
+
  </script>
 {% endblock %}
 

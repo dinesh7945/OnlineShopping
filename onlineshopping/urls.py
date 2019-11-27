@@ -30,6 +30,8 @@ urlpatterns = [
     path('register/',views.register,name="register"),
     path('orders/',views.orders,name="orders"),
     path('contact/',views.contact,name="contact"),
+    path('demo/',views.demo,name="demo"),
+    path('productfetch/',views.productfetch,name="productfetch"),
     
 ]
     

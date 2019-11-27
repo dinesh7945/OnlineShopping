@@ -2,11 +2,23 @@
 {% load static %} 
  {% block body %}
 orders Pagex
-
-
-
 {% endblock  %} 
 {% block js %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  
+    $.ajax({
+        //url: "/onlineshopping/demo",
+  url:"/onlineshopping/productfetch",
+    data: { id: '1' },
+     success: function(result){
+      //$("#div1").html(result);
+      alert(result);
+    }});
+  
+});
+</script>
 
 
 

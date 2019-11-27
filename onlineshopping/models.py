@@ -13,3 +13,26 @@ class product(models.Model):
     # method add and overtite
     def __str__(self):
         return self.product_name
+    
+    
+class Contact(models.Model):
+    msg_id = models.AutoField(primary_key=True)
+    name = models.CharField(max_length=20)
+    email = models.EmailField(max_length=20,default="")
+    phone = models.CharField(max_length=10, default="")
+    desc = models.CharField(max_length=500, default="")
+    
+    def __str__(self):
+        return self.name
+    
+class Register(models.Model):
+    Register_id = models.AutoField(primary_key=True)
+    name = models.CharField(max_length=50)
+    email = models.EmailField(max_length=12)
+    phone = models.CharField(max_length=10, default="")
+    password = models.CharField(max_length=10)
+    
+    def __str__(self):
+            return self.name
+
+    
