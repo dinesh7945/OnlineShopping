@@ -49,13 +49,13 @@
       <li class="nav-item active ">
         <a class="nav-link text-light" href={% url 'index' %} >Home <span class="sr-only">(current)</span></a>
       </li>
-        <li class="nav-item active">
+        {% comment %} <li class="nav-item active">
         <a class="nav-link text-light" href="#">Men <span class="sr-only">(current)</span></a>
-      </li>
-        <li class="nav-item active">
+      </li> {% endcomment %}
+        {% comment %} <li class="nav-item active">
         <a class="nav-link text-light" href="#">Women<span class="sr-only">(current)</span></a>
       </li>
-      
+       {% endcomment %}
       <li class="nav-item dropdown active">
         <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Products
@@ -66,7 +66,7 @@
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="#">Something else here</a>
         </div>
-      </li>
+      </li> 
     </ul>
     <form class="form-inline my-2 my-lg-0 " style="width: 60%;margin-left: 10px;">
       <input class="form-control mr-sm-2 " type="search" placeholder="Search" aria-label="Search" style="width: 60%;margin-left: -21%;   ">
@@ -74,8 +74,8 @@
   
         
         
-        <li class="nav-item dropdown ">
-        <a class="nav-link dropdown-toggle"style="color:white!important;margin-top: -29px!important;"  href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-top:-20%;    margin-left: 24px;">
+        <li class="nav-item dropdown"style="color:#17a2b8">
+        <a class="nav-link dropdown-toggle"style="color:#17a2b8!important;margin-top: -29px!important;"  href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-top:-20%;margin-left: 24px;">
                        
 
             <i class="user icon" style="color: black;font-size: 25px;margin-left:0%;margin-top:0%;"></i>
@@ -98,17 +98,44 @@
 
 <a class="nav-link text-dark" href="#" style="font-size: 25px;margin-bottom: 7px;"> <i class="shopping cart icon"></i> 
 <span class="sr-only">(current)</span></a>
-<a href= "{% url 'orders' %}"><span style="color: white;">Your Orders</span></a>
+{% comment %} <a href= "{% url 'orders' %}"><span style="color: white;">More</span></a> {% endcomment %}
+<li class="nav-item dropdown"style="margin-left: -3%;
+    margin-top: -4%;color:#17a2b8">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:white">
+          More
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href={% url 'orders' %}>Action</a>
+          <a class="dropdown-item" href={% url 'contact' %}>Contact Us</a>
+          
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li>
+
+{% comment %} 
+<div class="dropdown">
+  <button type="button" class="nav-link dropdown-toggle" data-toggle="dropdown">
+    More
+  </button>
+  <div class="dropdown-menu">
+    <a class="dropdown-item" href="#">Link 1</a>
+    <a class="dropdown-item" href="#">Link 2</a>
+    <a class="dropdown-item" href="#">Link 3</a>
+  </div>
+</div>
+
+
+ {% endcomment %}
 
 </div>
-<ul><li class="nav-item dropdown">
+<ul style="color:#17a2b8"><li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true">
           <span class="fa fa-shopping-cart ch" style="font-size:30px;margin-top: 8px;"><span id="cart"> 0</span></span>
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="margin-left: -44px;">
           <a class="dropdown-item" href="#">Wishlist</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Checkout</a>
+          <a class="dropdown-item" href={% url 'checkout' %}>Checkout</a>
         </div>
       </li>
 </ul> 
