@@ -23,11 +23,15 @@ urlpatterns = [
     path('about/',views.about,name="aboutus"),    
     # path('tracker/',views.tracker,name="trackingStatus"),
     # path('search/',views.search,name="search"),
-    path('productview/<int:myid>',views.productview,name="productview"),
+    path('products/<int:myid>',views.productview,name="productview"),
+    # path('productview/',views.productview,name="productview"),
     path('checkout/',views.checkout,name="checkout"),
     path('login/',views.login,name="login"),
     path('register/',views.register,name="register"),
     path('orders/',views.orders,name="orders"),
+    path('contact/',views.contact,name="contact"),
+    path('demo/',views.demo,name="demo"),
+    path('productfetch/',views.productfetch,name="productfetch"),
     
 ]
     

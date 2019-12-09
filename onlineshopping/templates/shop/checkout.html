@@ -1,4 +1,5 @@
-{% load static %}
+
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -12,34 +13,30 @@
       
 <!--      semantic ui-->
       
-{% comment %} 
-  <link rel='stylesheet prefetch' href="{% static 'http://cdnjs.cloudflare.com/ajax/libs/semantic-ui/0.16.1/css/semantic.min.css' %}">
-  
-  
-  <link rel='stylesheet prefetch' href="{% static 'https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/components/icon.min.css' %}"> {% endcomment %}
+
   
 
       
       
       <style>
-      {% block css %}  
+        
           .text-muted{
               color:white!important;
           }
           
       
-      {% endblock %}
+      
       
       </style>
     <title>
-    {% block title %}   {% endblock %} 
+     Checkout - My Awesome Cart 
     </title>
   </head>
   <body>
 
-<!--  {% comment %} Header {% endcomment %}-->
+<!--  -->
     <nav class="navbar navbar-expand-lg navbar-info bg-info">
-  <a class="navbar-brand text-light" href="{% url 'index'%}"><b style="margin-left: 20px;margin-right:-4rem;">7</b><br>Shop</a>
+  <a class="navbar-brand text-light" href="/onlineshopping/"><b style="margin-left: 20px;margin-right:-4rem;">7</b><br>Shop</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent " aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -47,15 +44,15 @@
   <div class="collapse navbar-collapse " id="navbarSupportedContent" style="margin-left:4%;">
     <ul class="navbar-nav mr-auto" >
       <li class="nav-item active ">
-        <a class="nav-link text-light" href={% url 'index' %} >Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link text-light" href=/onlineshopping/ >Home <span class="sr-only">(current)</span></a>
       </li>
-        {% comment %} <li class="nav-item active">
+        <li class="nav-item active">
         <a class="nav-link text-light" href="#">Men <span class="sr-only">(current)</span></a>
-      </li> {% endcomment %}
-        {% comment %} <li class="nav-item active">
+      </li>
+        <li class="nav-item active">
         <a class="nav-link text-light" href="#">Women<span class="sr-only">(current)</span></a>
       </li>
-       {% endcomment %}
+      
       <li class="nav-item dropdown active">
         <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Products
@@ -66,7 +63,7 @@
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="#">Something else here</a>
         </div>
-      </li> 
+      </li>
     </ul>
     <form class="form-inline my-2 my-lg-0 " style="width: 60%;margin-left: 10px;">
       <input class="form-control mr-sm-2 " type="search" placeholder="Search" aria-label="Search" style="width: 60%;margin-left: -21%;   ">
@@ -74,8 +71,8 @@
   
         
         
-        <li class="nav-item dropdown"style="color:#17a2b8">
-        <a class="nav-link dropdown-toggle"style="color:#17a2b8!important;margin-top: -29px!important;"  href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-top:-20%;margin-left: 24px;">
+        <li class="nav-item dropdown ">
+        <a class="nav-link dropdown-toggle"style="color:white!important;margin-top: -29px!important;"  href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-top:-20%;    margin-left: 24px;">
                        
 
             <i class="user icon" style="color: black;font-size: 25px;margin-left:0%;margin-top:0%;"></i>
@@ -83,69 +80,97 @@
        <i class="fa fa-user" style="font-size:24px;color: white;font-size: 25px;margin-left:0%;margin-top:0%;"></i>
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown"  style="width:21rem;height:9rem;">
-          {% comment %} <a class="dropdown-item" href={% url 'login' %}>Login</a> {% endcomment %}
+          
           <a class="dropdown-item"> <div class="container-fluid " style="height:9rem;margin-left: 20px; ">
             </a><div class="content" style="float: left;margin-left: 2%;margin-top: 0%;}">
         <span> See personalized recommendations</span><br/></a>
-        <a href= {% url 'login' %}><button type="button" class="btn btn-info" style="width: 100%; "><b>Sign In</b></button></a><br/>
-          <span class="new Customer">New Customer ? <a href={% url 'register' %}>Start Here</a></span>
+        <a href= /onlineshopping/login/><button type="button" class="btn btn-info" style="width: 100%; "><b>Sign In</b></button></a><br/>
+          <span class="new Customer">New Customer ? <a href=/onlineshopping/register/>Start Here</a></span>
         </div>
-       {% comment %} <a class="dropdown-item" href={% url '#' %}>Contact us</a>
-      <a class="dropdown-item" href={% url '#' %}>Wishlist</a>
-      <a class="dropdown-item" href={% url '#' %}>Orders</a> {% endcomment %}
+       
       </div>       
       </li>
 
 <a class="nav-link text-dark" href="#" style="font-size: 25px;margin-bottom: 7px;"> <i class="shopping cart icon"></i> 
 <span class="sr-only">(current)</span></a>
-{% comment %} <a href= "{% url 'orders' %}"><span style="color: white;">More</span></a> {% endcomment %}
-<li class="nav-item dropdown"style="margin-left: -3%;
-    margin-top: -4%;color:#17a2b8">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:white">
-          More
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href={% url 'orders' %}>Action</a>
-          <a class="dropdown-item" href={% url 'contact' %}>Contact Us</a>
-          
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
-      </li>
-
-{% comment %} 
-<div class="dropdown">
-  <button type="button" class="nav-link dropdown-toggle" data-toggle="dropdown">
-    More
-  </button>
-  <div class="dropdown-menu">
-    <a class="dropdown-item" href="#">Link 1</a>
-    <a class="dropdown-item" href="#">Link 2</a>
-    <a class="dropdown-item" href="#">Link 3</a>
-  </div>
-</div>
-
-
- {% endcomment %}
+<a href= "/onlineshopping/orders/"><span style="color: white;">Your Orders</span></a>
 
 </div>
-<ul style="color:#17a2b8"><li class="nav-item dropdown">
+<ul><li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true">
           <span class="fa fa-shopping-cart ch" style="font-size:30px;margin-top: 8px;"><span id="cart"> 0</span></span>
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="margin-left: -44px;">
           <a class="dropdown-item" href="#">Wishlist</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href={% url 'checkout' %}>Checkout</a>
+          <a class="dropdown-item" href="#">Checkout</a>
         </div>
       </li>
 </ul> 
 
-{% comment %} <a href="#" style="color:white;"><span class="fa fa-shopping-cart ch" style="font-size:35px;margin-left: 35px;"><span id="cart"> 0</span></span></a> {% endcomment %}
+
     </form>
         </div>
 </nav>
-{% comment %} header end {% endcomment %}
-{% block body %}  {% endblock %}
+
+
+<div class="container">
+    <div class="col my-4">
+        <h2>Step 1 - My Awesome Cart Express Checkout - Review Your Cart Items</h2>
+        <div id="items">
+            <ul class="list-group" id="items">
+
+
+
+
+
+            </ul>
+        </div>
+    </div>
+    <div class="col my-4">
+        <h2>Step 2 - Enter Address & Other Details:</h2>
+        <form>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="inputname">Name</label>
+                    <input type="name" class="form-control" id="inputname" placeholder="Name">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="inputEmail4">Email</label>
+                    <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputAddress">Address</label>
+                <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+            </div>
+            <div class="form-group">
+                <label for="inputAddress2">Address line 2</label>
+                <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="inputCity">City</label>
+                    <input type="text" class="form-control" id="inputCity">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="inputState">State</label>
+                    <input type="text" class="form-control" id="inputAddress2" placeholder="Enter State">
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="inputZip">Zip</label>
+                    <input type="text" class="form-control" id="inputZip">
+                </div>
+            </div>
+            <div class="form-group">
+                    <label for="inputZip">Phone Number</label>
+                    <input type="tel" class="form-control" id="inputPhone">
+                </div>
+            <button type="submit" class="btn btn-primary">Place Order</button>
+        </form>
+    </div>
+</div>
+
 
 
 
@@ -161,7 +186,7 @@
       <footer class="pt-4 my-md-5 pt-md-5 border-top bg-info" style="margin-bottom: 0!important;margin-top: 0!important;color:white!important;">
     <div class="row bg-info">
       <div class="col-12 col-md">
-        <img class="mb-2" src="{% static 'shop/4.jpg' %}"="/docs/4.3/assets/brand/bootstrap-solid.svg" alt="" width="24" height="24">
+        <img class="mb-2" src="/static/shop/4.jpg"="/docs/4.3/assets/brand/bootstrap-solid.svg" alt="" width="24" height="24">
         <small class="d-block mb-3 text-muted">© 2017-2019</small>
       </div>
       <div class="col-6 col-md">
@@ -204,7 +229,54 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-    {% block js %}  {% endblock %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+
+<script>
+if(localStorage.getItem('cart') == null){
+    var cart = {};
+    }
+else{
+var cart = JSON.parse(localStorage.getItem('cart'));
+}
+console.log(cart)
+ 
+
+const test = cart;
+
+{% comment %} for (const [key, value] of Object.entries(test)) {
+  console.log(key);
+
+   let name="Sky Bag";
+   console.log(name)
+    let qty = value;
+    mystr = '<li class="list-group-item d-flex justify-content-between align-items-center">'+
+                    name+'<span class="badge badge-primary badge-pill">'+qty+'</span></li>';
+    $('#items').append(mystr);
+   
+
+} {% endcomment %}
+
+$(document).ready(function(){
+for (const [key, value] of Object.entries(cart)) {
+  
+    $.ajax({
+        //url: "/onlineshopping/demo",
+  url:"/onlineshopping/productfetch",
+    data: { id: key },
+     success: function(result){
+      //$("#div1").html(result);
+      alert(result);
+      #name=value.result.name
+      #price=
+    }});
+}
+});
+</script>
+
+
+
+
   </body>
 </html>
 
