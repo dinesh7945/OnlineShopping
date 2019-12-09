@@ -685,18 +685,8 @@
  {% block js %} 
 
     <script>
-
-
-
-
-
-
-
-
 {% comment %} after click code start here {% endcomment %}
 var qnt=0;
-
-
 //find out cart items in localStorage.getItem
 console.log(localStorage.getItem('cart'))
 if(localStorage.getItem('cart') == null){
@@ -711,7 +701,7 @@ for(var key in cart)
 }
 
   document.getElementById('cart').innerHTML = qnt;
-}        
+}
 
 //jquery function
 // if add to cart button is clicked add / increment the item
@@ -761,10 +751,6 @@ function updatecart(){
     document.getElementById('updatecart').setAttribute('data-content',updatecart);
     $('#updatecart').popover('show');
       }
-  
-
-
-
  </script>
 {% endblock %}
 
